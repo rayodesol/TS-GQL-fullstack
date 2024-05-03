@@ -1,0 +1,12 @@
+{
+  "name": "privproj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rayodesol/TS-GQL-fullstack.git",
+  "author": "song <song@zensystems.co.kr>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "antd": "^5.17.0"
+  }
+}
