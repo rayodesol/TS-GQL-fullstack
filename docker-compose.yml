@@ -1,0 +1,35 @@
+# Docker Compose는 여러 개의 서비스를 이뤄진 애플리케이션을 하나의 YAML 파일에 정의
+# 추후 프로젝트에 반영 예정
+
+# 기본 폼
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    depends_on:
+      - db
+      - redis
+    # 기타 설정
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    # 기타 설정
+
+  db:
+    image: postgres:latest
+    # 기타 설정
+
+  redis:
+    image: redis:latest
+    # 기타 설정
+
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - frontend
+    # 기타 설정
+
+# 기타 설정 (네트워크, 볼륨 등)
