@@ -1,3 +1,4 @@
+# 도커 컴포즈 용. 추후 프로젝트에 반영 예정.
 # https://www.daleseo.com/docker-compose-django/#requirementstxt
 # 파이썬에서는 보통 프로젝트에서 필요한 패키지를 requirements.txt 파일에 등록해놓고, 패키지 매니저인 pip를 이용해서 패키지 설치
 # AICSM 프로젝트에서 일부 복붙
