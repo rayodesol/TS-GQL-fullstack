@@ -14,10 +14,9 @@ class Film(models.Model):
     )  # -> TextChoicesField
     runningTime = models.IntegerField(help_text="영화 러닝 타임, minute")
     description = models.TextField(help_text="영화 줄거리 및 설명")
-    # https://docs.djangoproject.com/en/5.0/ref/models/fields/#foreignkey
-    # ManyToManyField 관계로는?
-    director_id = models.ForeignKey(
-        "Director", on_delete=models.SET_NULL, null=True, help_text="제작자 고유 아이디"
+    # https://docs.djangoproject.com/en/5.0/ref/models/fields/#foreignkey   # ManyToManyField 관계로는?
+    director = models.ForeignKey(
+        "Director", on_delete=models.SET_NULL, null=True, help_text="제작자"
     )
     posterImg = models.URLField(
         max_length=700, help_text="포스터 이미지 URL"
