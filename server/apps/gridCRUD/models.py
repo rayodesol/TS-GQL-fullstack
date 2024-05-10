@@ -16,7 +16,11 @@ class Film(models.Model):
     description = models.TextField(help_text="영화 줄거리 및 설명")
     # https://docs.djangoproject.com/en/5.0/ref/models/fields/#foreignkey   # ManyToManyField 관계로는?
     director = models.ForeignKey(
-        "Director", on_delete=models.SET_NULL, null=True, help_text="제작자"
+        "Director",
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="films",  # 역참조
+        help_text="제작자",
     )
     posterImg = models.URLField(
         max_length=700, help_text="포스터 이미지 URL"
