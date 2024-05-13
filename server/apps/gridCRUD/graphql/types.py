@@ -5,7 +5,7 @@ from typing import List
 import strawberry_django
 from strawberry import auto
 
-from server.apps.gridCRUD import models
+from apps.gridCRUD import models
 
 
 # auto - (2)자동 적용

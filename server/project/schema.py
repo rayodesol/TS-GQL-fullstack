@@ -1,7 +1,8 @@
 import strawberry
 from strawberry_django.optimizer import DjangoOptimizerExtension
 
-from server.apps.gridCRUD.graphql.schema import GridCRUDQuery
+
+from apps.gridCRUD.graphql.schema import GridCRUDQuery
 
 
 # 클래스 상속으로 각 장고 앱의 스키마 내용을 한 곳에 모음

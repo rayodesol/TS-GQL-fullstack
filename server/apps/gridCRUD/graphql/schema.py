@@ -3,7 +3,7 @@
 import strawberry
 import strawberry_django
 
-from server.apps.gridCRUD.graphql.types import DirectorType, FilmType
+from .types import DirectorType, FilmType
 
 
 @strawberry.type
