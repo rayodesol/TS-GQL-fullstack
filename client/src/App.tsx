@@ -1,6 +1,6 @@
 // https://ant.design/docs/react/use-with-create-react-app
-import React from 'react';
-import { Button } from 'antd';
+import React from "react";
+import { Button } from "antd";
 
 const App: React.FC = () => (
   <div className="App">

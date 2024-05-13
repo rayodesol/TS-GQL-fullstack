@@ -1,6 +1,6 @@
-## 데이터베이스 모델 정의
-## 필드 타입 https://docs.djangoproject.com/en/5.0/ref/models/fields/#model-field-types
-## 필드 옵션 https://docs.djangoproject.com/en/5.0/topics/db/models/#field-options
+# 데이터베이스 모델 정의
+# 필드 타입 https://docs.djangoproject.com/en/5.0/ref/models/fields/#model-field-types
+# 필드 옵션 https://docs.djangoproject.com/en/5.0/topics/db/models/#field-options
 from django.db import models
 
 
