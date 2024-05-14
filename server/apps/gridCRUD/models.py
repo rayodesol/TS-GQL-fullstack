@@ -8,11 +8,15 @@ class Film(models.Model):
     # https://docs.djangoproject.com/en/5.0/topics/db/models/#automatic-primary-key-fields
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=300, help_text="영화 제목")
-    subtitle = models.CharField(max_length=500, null=True, help_text="영화 부제목")
+    subtitle = models.CharField(
+        max_length=500, null=True, blank=True, help_text="영화 부제목"
+    )
     genre = models.CharField(
-        max_length=200, help_text="영화 장르"
+        max_length=200, null=True, blank=True, help_text="영화 장르"
     )  # -> TextChoicesField
-    runningTime = models.IntegerField(help_text="영화 러닝 타임, minute")
+    runningTime = models.IntegerField(
+        null=True, blank=True, help_text="영화 러닝 타임, minute"
+    )
     description = models.TextField(help_text="영화 줄거리 및 설명")
     # https://docs.djangoproject.com/en/5.0/ref/models/fields/#foreignkey   # ManyToManyField 관계로는?
     director = models.ForeignKey(
@@ -23,9 +27,9 @@ class Film(models.Model):
         help_text="제작자",
     )
     posterImg = models.URLField(
-        max_length=700, help_text="포스터 이미지 URL"
+        max_length=700, null=True, blank=True, help_text="포스터 이미지 URL"
     )  # -> ImageField
-    release = models.DateField(help_text="개봉일")
+    release = models.DateField(null=True, blank=True, help_text="개봉일")
 
 
 class Director(models.Model):
