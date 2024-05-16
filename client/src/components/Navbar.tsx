@@ -1,31 +1,25 @@
-// https://ant.design/components/menu#menu-demo-horizontal
+// 코드 틀 https://ant.design/components/menu#menu-demo-horizontal
+// AntD 아이콘 https://ant.design/components/icon
 import React, { useState } from "react";
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { AppstoreAddOutlined, PlusOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
+import styled from "styled-components";
+// import { Link } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [
   {
-    label: "Navigation One",
-    key: "mail",
-    icon: <MailOutlined />,
+    // label: <Link to="/grid_crud">영화 목록</Link>,
+    label: "영화 목록", // 보여지는 이름
+    key: "gridCRUD", // Unique ID of the menu item
+    icon: <AppstoreAddOutlined />,
   },
   {
-    label: "Navigation Two",
-    key: "app",
-    icon: <AppstoreOutlined />,
-    disabled: true,
-  },
-  {
-    label: "Navigation Three - Submenu",
+    label: "세부 메뉴 있는 경우",
     key: "SubMenu",
-    icon: <SettingOutlined />,
+    icon: <PlusOutlined />,
     children: [
       {
         type: "group",
@@ -45,18 +39,24 @@ const items: MenuItem[] = [
       },
     ],
   },
-  {
-    key: "alipay",
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Four - Link
-      </a>
-    ),
-  },
 ];
 
+// AntD + styled-components
+const StyledMenu = styled(Menu)`
+  background-color: #d2e5ff;
+  & > .ant-menu-item,
+  .ant-menu-submenu {
+    /* display: flex; */
+    /* justify-content: center; */
+    min-width: 130px;
+  }
+  /* &.ant-menu-item-selected {
+    font-weight: bold;
+  } */
+`;
+
 const App: React.FC = () => {
-  const [current, setCurrent] = useState("mail");
+  const [current, setCurrent] = useState("gridCRUD"); // 클릭되어 있는 메뉴
 
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
@@ -64,7 +64,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Menu
+    <StyledMenu
       onClick={onClick}
       selectedKeys={[current]}
       mode="horizontal"
