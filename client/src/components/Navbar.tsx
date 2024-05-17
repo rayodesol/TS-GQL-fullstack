@@ -5,6 +5,7 @@ import { AppstoreAddOutlined, PlusOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 import styled from "styled-components";
+import tw from "twin.macro";
 // import { Link } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>["items"][number];
@@ -41,18 +42,27 @@ const items: MenuItem[] = [
   },
 ];
 
-// AntD + styled-components
+// AntD + Tailwind + styled-components
 const StyledMenu = styled(Menu)`
-  background-color: #d2e5ff;
-  & > .ant-menu-item,
+  & .ant-menu-item,
   .ant-menu-submenu {
-    /* display: flex; */
-    /* justify-content: center; */
-    min-width: 130px;
+    min-width: 150px;
+    /* &:first-child {
+      border-left-style: solid;
+    } */
+    &:last-child {
+      border-right-style: none;
+    }
+    ${tw`font-normal text-lg`}
+    &.ant-menu-item-selected {
+      ${tw`font-bold`}
+    }
   }
-  /* &.ant-menu-item-selected {
-    font-weight: bold;
-  } */
+  /* hover 밑줄 삭제 (기본 스타일 제거) */
+  .ant-menu-item::after,
+  .ant-menu-submenu::after {
+    display: none;
+  }
 `;
 
 const App: React.FC = () => {
